@@ -8,17 +8,14 @@ using Amazon.Lambda.Serialization.Json;
 
 [assembly:LambdaSerializer(typeof(JsonSerializer))]
 
-namespace Hello {
+namespace DotNetServerless {
   public class Handler {
     public APIGatewayProxyResponse Hello(APIGatewayProxyRequest request)
     {
-      Console.WriteLine("Entered hello");
-      MemoryStream stream = new MemoryStream();
-      new JsonSerializer().Serialize(new HelloBody(), stream);
-      stream.Position = 0;
-    
       return new APIGatewayProxyResponse {
-        Body = new StreamReader(stream).ReadToEnd(),
+        Body = StreamHelper.StringFromStream(stream => {
+          new JsonSerializer().Serialize(new HelloBody(), stream);
+        }),
         StatusCode = 200,
         Headers = new Dictionary<string, string> {
           { "Content-Type", "text/html" }
