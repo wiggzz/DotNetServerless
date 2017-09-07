@@ -1,6 +1,9 @@
 using Xunit;
 using Hello;
+using System;
 using Amazon.Lambda.APIGatewayEvents;
+using Amazon.Lambda.Serialization.Json;
+using System.IO;
 
 namespace HelloTests
 {
@@ -27,6 +30,17 @@ namespace HelloTests
           var response = _handler.Hello(new APIGatewayProxyRequest());
 
           Assert.Equal(response.Body, "{\"Message\":\"Hello World!\"}");
+        }
+
+        [Fact]
+        public void HandlerHelloResponseShouldBeSerializable()
+        {
+          var response = _handler.Hello(new APIGatewayProxyRequest());
+
+          MemoryStream stream = new MemoryStream();
+          new JsonSerializer().Serialize(response, stream);
+          
+          Assert.NotEqual(stream.Length, 0);
         }
     }
 }

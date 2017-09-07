@@ -1,4 +1,5 @@
 .serverless
-bin/
+**/bin/
+**/obj/
 node_modules/
-obj/
+

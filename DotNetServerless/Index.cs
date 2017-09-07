@@ -3,6 +3,7 @@ using Amazon.Lambda.APIGatewayEvents;
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Amazon.Lambda.Serialization.Json;
 
 [assembly:LambdaSerializer(typeof(JsonSerializer))]
@@ -12,12 +13,10 @@ namespace Hello {
     public APIGatewayProxyResponse Hello(APIGatewayProxyRequest request)
     {
       Console.WriteLine("Entered hello");
-      Stream stream = new MemoryStream();
-
-      Response response = new Response();
-      new JsonSerializer().Serialize(response, stream);
+      MemoryStream stream = new MemoryStream();
+      new JsonSerializer().Serialize(new HelloBody(), stream);
       stream.Position = 0;
-
+    
       return new APIGatewayProxyResponse {
         Body = new StreamReader(stream).ReadToEnd(),
         StatusCode = 200,
@@ -27,10 +26,10 @@ namespace Hello {
       };
     }
 
-    public class Response {
+    public class HelloBody {
       public String Message { get; set; }
 
-      public Response() {
+      public HelloBody() {
         Message = "Hello World!";
       }
     }
