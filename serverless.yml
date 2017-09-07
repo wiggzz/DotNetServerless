@@ -1,0 +1,18 @@
+service: dotnet-hello
+
+provider:
+  name: aws
+  runtime: dotnetcore1.0
+  stage: dev
+  region: ap-southeast-2
+  memorySize: 512 # Overwrite the default memory size. Default is 1024
+  versionFunctions: false # Optional function versioning
+
+package:
+  artifact: bin/release/netcoreapp1.0/deploy-package.zip
+
+functions:
+  hello:
+    handler: DotNetServerless::Hello.Handler::Hello
+    events:
+      - http: get hello
