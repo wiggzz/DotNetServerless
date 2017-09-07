@@ -9,10 +9,10 @@ provider:
   versionFunctions: false # Optional function versioning
 
 package:
-  artifact: bin/release/netcoreapp1.0/deploy-package.zip
+  artifact: DotNetServerless/bin/release/netcoreapp1.0/deploy-package.zip
 
 functions:
   hello:
-    handler: DotNetServerless::Hello.Handler::Hello
+    handler: DotNetServerless::DotNetServerless.Hello::Handler
     events:
       - http: get hello

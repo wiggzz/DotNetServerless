@@ -9,18 +9,10 @@ using Amazon.Lambda.Serialization.Json;
 [assembly:LambdaSerializer(typeof(JsonSerializer))]
 
 namespace DotNetServerless {
-  public class Handler {
-    public APIGatewayProxyResponse Hello(APIGatewayProxyRequest request)
+  public class Hello {
+    public APIGatewayProxyResponse Handler(APIGatewayProxyRequest request)
     {
-      return new APIGatewayProxyResponse {
-        Body = StreamHelper.StringFromStream(stream => {
-          new JsonSerializer().Serialize(new HelloBody(), stream);
-        }),
-        StatusCode = 200,
-        Headers = new Dictionary<string, string> {
-          { "Content-Type", "text/html" }
-        }
-      };
+      return APIGatewayHelper.Success(new HelloBody());
     }
 
     public class HelloBody {

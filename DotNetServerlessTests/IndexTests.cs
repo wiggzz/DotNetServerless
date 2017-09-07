@@ -7,35 +7,35 @@ using System.IO;
 
 namespace DotNetServerlessTests
 {
-    public class HandlerTests
+    public class HelloTests
     {
-        private readonly Handler _handler;
+        private readonly Hello _hello;
 
-        public HandlerTests()
+        public HelloTests()
         {
-            _handler = new Handler();
+            _hello = new Hello();
         }
 
         [Fact]
-        public void HandlerHelloShouldReturn200()
+        public void HelloHandlerShouldReturn200()
         {
-            var response = _handler.Hello(new APIGatewayProxyRequest());
+            var response = _hello.Handler(new APIGatewayProxyRequest());
 
             Assert.Equal(200, response.StatusCode);
         }
 
         [Fact]
-        public void HandlerHelloShouldReturnHelloWorldMessage()
+        public void HelloHandlerShouldReturnHelloWorldMessage()
         {
-          var response = _handler.Hello(new APIGatewayProxyRequest());
+          var response = _hello.Handler(new APIGatewayProxyRequest());
 
           Assert.Equal("{\"Message\":\"Hello World!\"}", response.Body);
         }
 
         [Fact]
-        public void HandlerHelloResponseShouldBeSerializable()
+        public void HelloHandlerResponseShouldBeSerializable()
         {
-          var response = _handler.Hello(new APIGatewayProxyRequest());
+          var response = _hello.Handler(new APIGatewayProxyRequest());
 
           MemoryStream stream = new MemoryStream();
           new JsonSerializer().Serialize(response, stream);
