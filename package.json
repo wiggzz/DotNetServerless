@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "restore": "npm run restore:src && npm run restore:tests",
-    "restore:src": "cd DotNetServerless && dotnet restore",
-    "restore:tests": "cd DotNetServerlessTests && dotnet restore",
+    "restore:src": "dotnet restore DotNetServerless",
+    "restore:tests": "dotnet restore DotNetServerlessTests",
     "package": "cd DotNetServerless && dotnet lambda package --configuration release --framework netcoreapp1.0 --output-package bin/release/netcoreapp1.0/deploy-package.zip",
     "deploy": "sls deploy",
     "test": "cd DotNetServerlessTests && dotnet test",
