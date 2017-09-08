@@ -1,7 +1,4 @@
-using System;
 using System.IO;
-using Amazon.Lambda.APIGatewayEvents;
-using Amazon.Lambda.Serialization.Json;
 using DotNetServerless;
 using Xunit;
 

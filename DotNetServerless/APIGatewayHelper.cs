@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Amazon.Lambda.APIGatewayEvents;
-using Amazon.Lambda.Core;
 using Amazon.Lambda.Serialization.Json;
 
 namespace DotNetServerless
