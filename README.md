@@ -44,3 +44,9 @@ Deploy to lambda (you will need to have your AWS credentials configured correctl
     npm run deploy
 
 None of these have been tested on any other machine than my own so, no guarantees.
+
+## Development
+
+If you want to watch for changes to rerun the tests, use
+
+    npm run watch
