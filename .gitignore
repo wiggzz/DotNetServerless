@@ -3,3 +3,4 @@
 **/obj/
 node_modules/
 DotNetServerless.userprefs
+build/

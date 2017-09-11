@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Hello World SAM Application
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: DotNetServerless::DotNetServerless.Hello::Handler
+      Runtime: dotnetcore1.0
+      Timeout: 6
+      MemorySize: 1500
+      CodeUri: DotNetServerless/bin/release/netcoreapp1.0/deploy-package.zip
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get

@@ -12,12 +12,12 @@ But anyway, it contains a few useful features:
   * npm build tooling (restore, test, package)
   * Unit test scaffolding
   * Structured logging using Serilog
+  * Deployment using SAM
 
 Coming soon / TO DO:
 
-  * Other testing frameworks than NUnit (although dotnet watch isn't bad)
-  * Deployment using SAM
   * Containerised setup for dev setup and CI set up
+  * Other testing frameworks than NUnit (although dotnet watch isn't bad)
 
 ## Set up
 
