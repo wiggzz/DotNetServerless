@@ -4,3 +4,4 @@
 node_modules/
 DotNetServerless.userprefs
 build/
+NuGetScratch/
