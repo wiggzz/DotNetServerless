@@ -15,7 +15,11 @@ RUN apt-get update \
         libunwind8 \
         libuuid1 \
         zlib1g \
+        python-dev \
+        python-pip \
     && rm -rf /var/lib/apt/lists/*
+
+RUN pip install awscli --upgrade
 
 # Install .NET Core SDK
 ENV DOTNET_SDK_VERSION 1.0.4
