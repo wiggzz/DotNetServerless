@@ -10,8 +10,8 @@
     "package": "cd DotNetServerless && dotnet lambda package --configuration release --framework netcoreapp1.0 --output-package bin/release/netcoreapp1.0/deploy-package.zip",
     "deploy:sls": "sls deploy",
     "deploy:sam": "scripts/deploy-sam.sh",
-    "test": "cd DotNetServerlessTests && dotnet test",
-    "watch": "cd DotNetServerlessTests && dotnet watch test"
+    "test": "cd DotNetServerlessTests && STAGE=test dotnet test",
+    "watch": "cd DotNetServerlessTests && STAGE=test dotnet watch test"
   },
   "keywords": [],
   "author": "",

@@ -13,11 +13,13 @@ But anyway, it contains a few useful features:
   * Unit test scaffolding
   * Structured logging using Serilog
   * Deployment using SAM
+  * Configuration for environment dependent settings
 
 Coming soon / TO DO:
 
   * Containerised setup for dev setup and CI set up
   * Other testing frameworks than NUnit (although dotnet watch isn't bad)
+
 
 ## Set up
 
