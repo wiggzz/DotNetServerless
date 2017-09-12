@@ -9,43 +9,11 @@ using Serilog.Formatting.Json;
 
 namespace DotNetServerless
 {
-  public class Hello
+  public class Hello : BaseLambdaFunction<HelloBody>
   {
-    private readonly ILogger logger;
-    private readonly Settings settings;
-
-    public Hello()
+    public override HelloBody HandlerDelegate(APIGatewayProxyRequest request)
     {
-      this.settings = new Settings();
-
-      ConfigurationHelper.Configure(this.settings);
-
-      this.logger = new LoggerConfiguration()
-        .WriteTo.Console(new JsonFormatter())
-        .MinimumLevel.Is(this.settings.LogLevel)
-        .CreateLogger();
-    }
-
-    public APIGatewayProxyResponse Handler(APIGatewayProxyRequest request)
-    {
-      var log = this.logger.ForContext("RequestId", request.RequestContext.RequestId);
-      log.Information("Entering Hello::Handler");
-      return APIGatewayHelper.Success(new HelloBody());
-    }
-
-    public class HelloBody
-    {
-      public HelloBody()
-      {
-        this.Message = "Hello World!";
-      }
-
-      public string Message { get; set; }
-    }
-
-    public class Settings
-    {
-      public LogEventLevel LogLevel { get; set; } = LogEventLevel.Information;
+      return new HelloBody();
     }
   }
 }
