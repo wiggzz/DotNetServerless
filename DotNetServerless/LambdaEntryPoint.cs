@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace DotNetServerless
 {
-  public class Hello : APIGatewayProxyFunction
+  public class LambdaEntryPoint : APIGatewayProxyFunction
   {
     protected override void Init(IWebHostBuilder builder)
     {

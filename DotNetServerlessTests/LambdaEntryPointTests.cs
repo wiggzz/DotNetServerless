@@ -7,20 +7,20 @@ using Xunit;
 
 namespace DotNetServerlessTests
 {
-  public class HelloTests
+  public class LambdaEntryPointTests
   {
-    private readonly Hello hello;
+    private readonly LambdaEntryPoint entryPoint;
 
-    public HelloTests()
+    public LambdaEntryPointTests()
     {
-      this.hello = new Hello();
+      this.entryPoint = new LambdaEntryPoint();
     }
 
     [Fact]
     public async void HelloHandlerShouldReturn200()
     {
       var lambdaContext = new TestLambdaContext();
-      var response = await this.hello.FunctionHandlerAsync(Request(), lambdaContext);
+      var response = await this.entryPoint.FunctionHandlerAsync(Request(), lambdaContext);
 
       Assert.Equal(200, response.StatusCode);
     }
@@ -29,7 +29,7 @@ namespace DotNetServerlessTests
     public async void HelloHandlerShouldReturnHelloWorldMessage()
     {
       var lambdaContext = new TestLambdaContext();
-      var response = await this.hello.FunctionHandlerAsync(Request(), lambdaContext);
+      var response = await this.entryPoint.FunctionHandlerAsync(Request(), lambdaContext);
 
       Assert.Equal("{\"message\":\"Hello World!\"}", response.Body);
     }
@@ -38,7 +38,7 @@ namespace DotNetServerlessTests
     public async void HelloHandlerResponseShouldBeSerializable()
     {
       var lambdaContext = new TestLambdaContext();
-      var response = await this.hello.FunctionHandlerAsync(Request(), lambdaContext);
+      var response = await this.entryPoint.FunctionHandlerAsync(Request(), lambdaContext);
 
       MemoryStream stream = new MemoryStream();
       new JsonSerializer().Serialize(response, stream);

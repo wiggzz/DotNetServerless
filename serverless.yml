@@ -13,6 +13,6 @@ package:
 
 functions:
   hello:
-    handler: DotNetServerless::DotNetServerless.Hello::Handler
+    handler: DotNetServerless::DotNetServerless.LambdaEntryPoint::FunctionHandlerAsync
     events:
       - http: get hello
