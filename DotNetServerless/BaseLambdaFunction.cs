@@ -19,7 +19,7 @@ namespace DotNetServerless
 
     public DefaultSettings Settings { get; set; }
 
-    public abstract TResponseType HandlerDelegate(APIGatewayProxyRequest request, ILogger logger);
+    public abstract TResponseType HandlerDelegate(APIGatewayProxyRequest request);
 
     public APIGatewayProxyResponse Handler(APIGatewayProxyRequest request)
     {

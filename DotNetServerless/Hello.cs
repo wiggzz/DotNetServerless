@@ -1,19 +1,15 @@
-using Amazon.Lambda.APIGatewayEvents;
-using Amazon.Lambda.Core;
-using Amazon.Lambda.Serialization.Json;
-using Serilog;
-using Serilog.Events;
-using Serilog.Formatting.Json;
-
-[assembly:LambdaSerializer(typeof(JsonSerializer))]
+using System.IO;
+using Amazon.Lambda.AspNetCoreServer;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DotNetServerless
 {
-  public class Hello : BaseLambdaFunction<HelloBody>
+  public class Hello : APIGatewayProxyFunction
   {
-    public override HelloBody HandlerDelegate(APIGatewayProxyRequest request)
+    protected override void Init(IWebHostBuilder builder)
     {
-      return new HelloBody();
+      builder.UseStartup<Startup>()
+        .UseApiGateway();
     }
   }
 }
