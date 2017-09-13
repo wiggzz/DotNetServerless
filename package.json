@@ -11,7 +11,8 @@
     "deploy:sls": "sls deploy",
     "deploy:sam": "scripts/deploy-sam.sh",
     "test": "cd DotNetServerlessTests && STAGE=test dotnet test",
-    "watch": "cd DotNetServerlessTests && STAGE=test dotnet watch test"
+    "test:watch": "cd DotNetServerlessTests && STAGE=test dotnet watch test",
+    "docker:ci": "scripts/docker-ci.sh"
   },
   "keywords": [],
   "author": "",

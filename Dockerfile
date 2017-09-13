@@ -53,5 +53,3 @@ ADD DotNetServerlessTests DotNetServerlessTests/
 ADD stylecop.* ./
 
 RUN npm run restore
-
-CMD ["npm", "run", "test"]
