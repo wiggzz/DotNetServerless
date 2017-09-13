@@ -5,7 +5,7 @@ provider:
   runtime: dotnetcore1.0
   stage: dev
   region: ap-southeast-2
-  memorySize: 512 # Overwrite the default memory size. Default is 1024
+  memorySize: 1500 # Overwrite the default memory size. Default is 1024
   versionFunctions: false # Optional function versioning
 
 package:
