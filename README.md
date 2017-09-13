@@ -59,9 +59,9 @@ For a hello world app:
 
 | Property | .NET Core Raw | ASP.NET |
 | -------- | ------------- | ------- |
-| Package size | 570KB | 2100KB |
-| Cold Start Time | 414ms | 815ms |
-| Warm Start Time | 3ms | 2ms |
+| *Package size* | 570KB | 2100KB |
+| *Cold Start Time* | 414ms | 815ms |
+| *Warm Start Time* | 3ms | 2ms |
 
 ### .NET Core Raw Samples
 416ms (cold)
