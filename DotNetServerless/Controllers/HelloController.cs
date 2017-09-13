@@ -2,9 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetServerless.Controllers
 {
+  [Route("hello")]
   public class HelloController : Controller
   {
-    [HttpGet("hello")]
+    [HttpGet]
     public HelloBody Get()
     {
       return new HelloBody();
