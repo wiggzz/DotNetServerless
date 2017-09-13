@@ -52,3 +52,38 @@ None of these have been tested on any other machine than my own so, no guarantee
 If you want to watch for changes to rerun the tests, use
 
     npm run watch
+
+## Comparison between .NET Core Raw and ASP.NET Core
+
+For a hello world app:
+
+| Property | .NET Core Raw | ASP.NET |
+| -------- | ------------- | ------- |
+| Package size | 570KB | 2100KB |
+| Cold Start Time | 414ms | 815ms |
+| Warm Start Time | 3ms | 2ms |
+
+### .NET Core Raw Samples
+416ms (cold)
+12ms
+7ms
+3ms
+3ms
+3ms
+3ms
+3ms
+413ms (cold)
+5ms
+3ms
+2ms
+
+### ASP.NET Samples
+818ms (cold)
+811ms (cold)
+11ms
+8ms
+2ms
+2ms
+2ms
+2ms
+2ms
