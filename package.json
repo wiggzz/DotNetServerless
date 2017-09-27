@@ -12,7 +12,8 @@
     "deploy:sam": "scripts/deploy-sam.sh",
     "test": "cd DotNetServerlessTests && STAGE=test dotnet test",
     "test:watch": "cd DotNetServerlessTests && STAGE=test dotnet watch test",
-    "docker:ci": "scripts/docker-ci.sh"
+    "docker:ci": "scripts/docker-ci.sh",
+    "start": "dotnet run --project DotNetServerless/DotNetServerless.csproj"
   },
   "keywords": [],
   "author": "",
